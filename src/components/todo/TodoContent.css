@@ -1,0 +1,5 @@
+.todo-content {
+    display: flex;
+    box-sizing: border-box;
+    padding: 1.5em;
+}

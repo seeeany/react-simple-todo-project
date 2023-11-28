@@ -1,7 +1,8 @@
 import style from "./TodoEntry.module.css";
-import Checkbox from "../Checkbox";
+import Checkbox from "../ui/Checkbox";
 import { useCheckbox } from "../../hooks/useCheckbox";
 import { useTodos } from "../../hooks/useTodos";
+import { useMousePosition } from "../../hooks/useMousePosition";
 
 interface TodoEntryProps {
   todoId: number,
@@ -14,6 +15,7 @@ interface TodoEntryProps {
 function TodoEntry({ todoId, name, isDone, description, onCheck }: TodoEntryProps) {
   const { setTodoName } = useTodos();
   const checkbox = useCheckbox();
+  const mousePosition = useMousePosition();
 
   const handleOnCheck = () => {
     const newState = checkbox.Toggle();
@@ -29,10 +31,8 @@ function TodoEntry({ todoId, name, isDone, description, onCheck }: TodoEntryProp
   const checkboxStyle = {
     margin: "5px",
     minWidth: "200px",
-    // alignItems: "left",
-    // alignContent: "left",
-    // justifyContent: "flex-end"
   };
+
 
   return (
     <div className={style.container}>
@@ -44,7 +44,7 @@ function TodoEntry({ todoId, name, isDone, description, onCheck }: TodoEntryProp
         style={checkboxStyle}
         editable
       />
-      <p>
+      <p style={{left: mousePosition.x , top: mousePosition.y - 200}}>
         {description != ""
           ? description
           : "This is an example of a description"}

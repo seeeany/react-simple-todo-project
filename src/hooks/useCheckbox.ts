@@ -4,11 +4,8 @@ export const useCheckbox = () => {
     const [isChecked, setIsChecked] = useState<boolean>(false)
 
     const Toggle = () => {
-        let newState: boolean = !isChecked;
-        setIsChecked((prev) => {
-            newState = !prev
-            return !prev;
-        })
+        const newState: boolean = !isChecked;
+        setIsChecked(!isChecked)
         return newState;
     }
 

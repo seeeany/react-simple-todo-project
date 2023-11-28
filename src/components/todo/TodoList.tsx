@@ -19,7 +19,6 @@ const TodoList = () => {
 
   return (
     <div className={style.container}>
-      <h1>To Do Page</h1>
       <div className={style.list}>
         {/* <TodoEntry name="" isDone={false} description="" /> */}
         {todoList.todos.map((value, index) => (

@@ -1,0 +1,38 @@
+.todo-sidebar {
+  /* position: static; */
+  display: inline-flex;
+  box-sizing: border-box;
+
+  text-wrap: nowrap;
+
+  background-color: #0d1015;
+  cursor: pointer;
+  opacity: 0;
+
+  width: 25px;
+  height: 100vh;
+
+  transition: width 0.25s ease-out opacity 0.1s linear;
+}
+
+.todo-sidebar * {
+    pointer-events: none;
+}
+
+.todo-sidebar:hover {
+  width: 75px;
+  opacity: 0;
+  transition: width 0.1s ease-in
+}
+
+.todo-sidebar.active {
+  opacity: 1;
+  width: 200px;
+
+  padding: 1.25em;
+  transition: width 0.25s ease-in, opacity 1s linear;
+}
+
+.todo-sidebar:active * {
+    pointer-events: all;
+}

@@ -16,23 +16,25 @@
 }
 
 .todo-sidebar * {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .todo-sidebar:hover {
   width: 75px;
   opacity: 0;
-  transition: width 0.1s ease-in
+  transition: width 0.1s ease-in;
 }
 
 .todo-sidebar.active {
   opacity: 1;
-  width: 200px;
+  width: auto;
+  min-width: 300px;
+  cursor: default;
 
   padding: 1.25em;
   transition: width 0.25s ease-in, opacity 1s linear;
 }
 
-.todo-sidebar:active * {
-    pointer-events: all;
+.todo-sidebar * {
+  pointer-events: all;
 }

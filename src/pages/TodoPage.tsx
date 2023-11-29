@@ -8,14 +8,14 @@ import style from "./TodoPage.module.css";
 const TodoPage = () => {
   return (
     <div className={style.container}>
-      <Sidebar>Sidebar Test</Sidebar>
+      <Sidebar>
+        <TodoList />
+      </Sidebar>
       <div className={style["content-container"]}>
         <Header>
           <h1>To Do Page</h1>
         </Header>
-        <Content>
-          <TodoList />
-        </Content>
+        <Content></Content>
       </div>
     </div>
   );

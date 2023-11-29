@@ -7,20 +7,25 @@ const TodoList = () => {
   const todoList = useTodos();
 
   const handleOnTodoCheck = (value: TodoState, newState: boolean) => {
-        const newValue = {
-            id: value.id,
-            name: value.name,
-            isDone: newState,
-            description: value.description
-        };
+    const newValue = {
+      id: value.id,
+      name: value.name,
+      isDone: newState,
+      description: value.description,
+    };
 
-        todoList.setTodo(newValue)
+    todoList.setTodo(newValue);
   };
 
   return (
     <div className={style.container}>
+      <div className={style["button-container"]}>
+        <button type="button" onClick={todoList.addNewTodo}>
+          Add Todo
+        </button>
+      </div>
+
       <div className={style.list}>
-        {/* <TodoEntry name="" isDone={false} description="" /> */}
         {todoList.todos.map((value, index) => (
           <TodoEntry
             key={index}
@@ -31,12 +36,6 @@ const TodoList = () => {
             onCheck={(newState) => handleOnTodoCheck(value, newState)}
           />
         ))}
-      </div>
-
-      <div className={style["button-container"]}>
-        <button type="button" onClick={todoList.addNewTodo}>
-          Add Todo
-        </button>
       </div>
     </div>
   );

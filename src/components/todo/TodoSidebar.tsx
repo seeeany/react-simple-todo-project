@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./TodoSideBar.css";
 import { useCheckbox } from "../../hooks/useCheckbox";
@@ -10,9 +10,11 @@ interface SidebarProps {
 function TodoSidebar({ children }: SidebarProps) {
   const { isChecked, Toggle } = useCheckbox();
 
+  const [selectedTodo, setSelectedTodo] = useState<number>(0)
+
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      console.log(e.key);
+      // console.log(e.key);
       if (e.key != "Escape") return;
       Toggle();
     };
@@ -31,6 +33,24 @@ function TodoSidebar({ children }: SidebarProps) {
         if (!isChecked) Toggle();
       }}
     >
+      <button
+        type="button"
+        style={{
+          height: "25px",
+          width: "25px",
+          textAlign: "center",
+          overflow: "hidden",
+          fontSize: "8px",
+          marginBottom: "5px",
+          alignSelf: "flex-end"
+        }}
+        onClick={() => {
+          if (isChecked) Toggle();
+        }}
+      >
+        X
+      </button>
+
       {children}
     </div>
   );

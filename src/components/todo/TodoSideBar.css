@@ -3,6 +3,8 @@
   display: inline-flex;
   box-sizing: border-box;
 
+  flex-direction: column;
+
   text-wrap: nowrap;
 
   background-color: #0d1015;
@@ -11,6 +13,8 @@
 
   width: 25px;
   height: 100vh;
+
+  overflow-y: scroll;
 
   transition: width 0.25s ease-out opacity 0.1s linear;
 }

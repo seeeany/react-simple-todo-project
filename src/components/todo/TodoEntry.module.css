@@ -6,9 +6,27 @@
   justify-content: space-between;
 
   z-index: 1;
+  border: 1px solid #272822;
+  border-radius: 5px;
+  background-color: #4e596d;
+  padding: 1em;
 }
 
-.container p {
+.container > * {
+  pointer-events: none;
+}
+
+.button {
+  display: none;
+  width: auto;
+  /* visibility: hidden; */
+}
+
+.container:hover .button {
+  display: block;
+}
+
+/* .container p {
   display: none;
   z-index: 0;
   width: 0px;
@@ -39,7 +57,6 @@
 
   user-select: none;
 
-  /* Add transition for the properties you want to animate */
   transition: display 0.5s ease-in-out, left 0.5s ease-in-out,
     bottom 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out;
-}
+} */

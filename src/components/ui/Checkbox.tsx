@@ -19,10 +19,10 @@ function Checkbox({
 }: CheckboxProps) {
   const inlineStyle = {
     container: {
-      border: "1px solid #272822",
-      borderRadius: "5px",
-      padding: "0.75em",
-      backgroundColor: "#4e596d",
+      // border: "1px solid #272822",
+      // borderRadius: "5px",
+      // padding: "0.75em",
+      // backgroundColor: "#4e596d",
       color: "white",
     },
     label: {
@@ -41,13 +41,30 @@ function Checkbox({
     onChangeLabel(newLabel);
   }
 
+  const handleOnCheckboxClick: React.MouseEventHandler<HTMLDivElement> = (
+    e
+  ) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div style={{ ...inlineStyle.container, ...style }}>
+    <div
+      style={{ ...inlineStyle.container, ...style }}
+      onClick={handleOnCheckboxClick}
+    >
       <input type="checkbox" checked={value} onChange={handleOnChange} />
       {editable ? (
-        <input type="text" value={label} onChange={(event) => {
-          handleOnChangeLabel(event.target.value)
-        }}/>
+        <input
+          disabled={value}
+          type="text"
+          value={label}
+          style={{
+            textDecoration: value ? "line-through" : "none",
+          }}
+          onChange={(event) => {
+            handleOnChangeLabel(event.target.value);
+          }}
+        />
       ) : (
         <span style={{ ...inlineStyle.label }}>{label}</span>
       )}
